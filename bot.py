@@ -4,6 +4,7 @@ import os
 import pytesseract
 import time
 import win32api, win32con
+import keyboard
 
 # GLOBABLS
 # -------------------
@@ -222,12 +223,25 @@ Bottom left : (x_pad+107, y_pad+235)
 Bottom right : (x_pad+543, y_pad+235)
 Next Question : (x_pad+497, y_pad+287)
 See your score : (x_pad+309, y_pad+231)
+Take another quiz : (x_pad+342, y_pad+227)
+View all Wizard101 Trivia : (x_pad+730, y_pad+587)
 Coordinates of the questions and answers :
 Question : (x_pad+11,y_pad+104,x_pad+990,y_pad+171)
 Answer Top Left : (x_pad+11,y_pad+171, x_pad+528, y_pad+212)
 Answer Top Right : (x_pad+528,y_pad+171, x_pad+990, y_pad+212)
 Answer Bottom Left :(x_pad+11, y_pad+212, x_pad+528, y_pad+252)
 Answer Bottom Right : (x_pad+528, y_pad+212, x_pad+990, y_pad+252)
+Coordinates of quizes :
+Adventuring : (x_pad+159, y_pad+273)
+Conjuring : (x_pad+406, y_pad+235)
+Magical : (x_pad+615, y_pad+253)
+Marleybone : (x_pad+186, y_pad+483)
+Mystical : (x_pad+426, y_pad+498)
+Spellbinding : (x_pad+667, y_pad+479)
+Spells : (x_pad+209, y_pad+657)
+Wizard City : (x_pad+478, y_pad+657)
+Zafaria :(x_pad+609, y_pad+655)
+Kingisle : (x_pad+530, y_pad+438)
 """
 
 def grabquestion():
@@ -298,9 +312,10 @@ def get_cords():   #Gets the coordinates, used for debugging
     x = x - x_pad
     y = y - y_pad
     print (x,y)
+    return (x,y)
     
 
-def findanswer(question):     #Finds and pressses the right answer
+def findanswer(question):     #Finds and presses the right answer
     if answer[question] in textit(1):
         mousePos((106, 188))
         leftClick()
@@ -324,8 +339,11 @@ def findanswer(question):     #Finds and pressses the right answer
 
 def play(i):        #Runs the bot
     is_ok=True
-    while i<=11:
-        time.sleep(6)
+    while i<12:
+        if i==0 :
+            time.sleep(2)
+        else:
+            time.sleep(6)
         print("Answering question " + str(i+1))
         grabquestion()
         grabanswers()
@@ -339,5 +357,75 @@ def play(i):        #Runs the bot
         i+=1
         if not is_ok:
             break
+    time.sleep(3)
+    mousePos((309, 231))
+    leftClick()
+
+def change_trivia():
+    mousePos((342, 227)) #Goes to the main menu
+    leftClick()
+    time.sleep(3)
+    mousePos((730, 587)) #Goes to the "Choose Trivia" menu
+    leftClick()
+
+def pick_trivia(name):
+    if name=="Adventuring":
+        mousePos((159, 273))    
+    elif name=="Kingisle":
+        mousePos((530, 438)) 
+    elif name=="Conjuring":
+        mousePos((406, 235)) 
+    elif name=="Magical":
+        mousePos((615, 253))
+    elif name=="Marleybone":
+        mousePos((186, 483))
+    elif name=="Mystical":
+        mousePos((426, 498))
+    elif name=="Spellbinding":
+        mousePos((667, 479))
+    elif name=="Spells":
+        mousePos((209, 657))
+    elif name=="Wizard City":
+        mousePos((478, 657))
+    elif name=="Zafaria":
+        mousePos((609, 655))        
+    leftClick()
+    time.sleep(4)
+    play(0)
+    while not keyboard.is_pressed('enter'):
+        time.sleep(0.1)
+
+        
+def main():
+    pick_trivia("Adventuring")
+    pick_trivia("Kingisle")
+    change_trivia()
+    pick_trivia("Conjuring")
+    change_trivia()
+    pick_trivia("Magical")
+    change_trivia()
+    pick_trivia("Marleybone")
+    change_trivia()
+    pick_trivia("Mystical")
+    change_trivia()
+    pick_trivia("")
+    change_trivia("Spellbinding")
+    change_trivia()
+    pick_trivia("Spells")
+    change_trivia()
+    pick_trivia("Wizard City")
+    change_trivia()
+    pick_trivia("Zafaria")
+    change_trivia()
+    
+    
+    
+
+
+
+
+
+
+
 
 
