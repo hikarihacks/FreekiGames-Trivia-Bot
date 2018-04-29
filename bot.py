@@ -150,7 +150,7 @@ answer['Vir Goodhealt is an assistant Mr']='Ras‘k Pndelal‘'
 answer['Who is the missing prince?']='TIZm SI‘verlusk'
 answer['Zebu Blackstripes legendary blade was forged:']='Valenc'
 answer['Umlilo Sunchaser hired who as a local guide?']='Redband'
-answer['What school Is the Gunak Demon focused on?']='Death'
+answer['What school Is the Gunak Demon focused on?']='Ba‘ance'
 answer['Who Is the Nameless Knight?']='Swr Malory'
 answer['Which one ofthese are not a symbol on the battle Slgll?']='Wand'
 answer['Wha guards the entrance to Unicorn Way?']='sun'
@@ -217,6 +217,7 @@ x_pad=134
 y_pad=248
 Play area = x_pad, y_pad, x_pad+994, y_pad+337
 Coordinates of the buttons :
+Move away : (x_pad+318, y+pad+698)
 Top Left : (x_pad+106,y_pad+188)
 Top Right : (x_pad+543, y_pad+188)
 Bottom left : (x_pad+107, y_pad+235)
@@ -313,7 +314,11 @@ def get_cords():   #Gets the coordinates, used for debugging
     y = y - y_pad
     print (x,y)
     return (x,y)
-    
+
+def move_away():
+    mousePos((318, 698))
+
+
 
 def findanswer(question):     #Finds and presses the right answer
     if answer[question] in textit(1):
@@ -370,11 +375,11 @@ def change_trivia():
 
 def pick_trivia(name):
     if name=="Adventuring":
-        mousePos((159, 273))    
+        mousePos((159, 273))
     elif name=="Kingisle":
-        mousePos((530, 438)) 
+        mousePos((530, 438))
     elif name=="Conjuring":
-        mousePos((406, 235)) 
+        mousePos((406, 235))
     elif name=="Magical":
         mousePos((615, 253))
     elif name=="Marleybone":
@@ -388,44 +393,220 @@ def pick_trivia(name):
     elif name=="Wizard City":
         mousePos((478, 657))
     elif name=="Zafaria":
-        mousePos((609, 655))        
+        mousePos((609, 655))
     leftClick()
     time.sleep(4)
+    move_away()
     play(0)
     while not keyboard.is_pressed('enter'):
         time.sleep(0.1)
 
-        
-def main():
-    pick_trivia("Adventuring")
-    pick_trivia("Kingisle")
-    change_trivia()
-    pick_trivia("Conjuring")
-    change_trivia()
-    pick_trivia("Magical")
-    change_trivia()
-    pick_trivia("Marleybone")
-    change_trivia()
-    pick_trivia("Mystical")
-    change_trivia()
-    pick_trivia("")
-    change_trivia("Spellbinding")
-    change_trivia()
-    pick_trivia("Spells")
-    change_trivia()
-    pick_trivia("Wizard City")
-    change_trivia()
-    pick_trivia("Zafaria")
-    change_trivia()
-    
-    
-    
-
-
-
-
-
-
-
-
-
+def main(name):                            #Testing purpose only!!
+    if name=="Adventuring":
+        pick_trivia("Adventuring")
+        time.sleep(3)
+        pick_trivia("Kingisle")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Conjuring")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Magical")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Marleybone")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Mystical")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spellbinding")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spells")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Wizard City")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Zafaria")
+        time.sleep(3)
+    elif name=="Kingsisle":
+        pick_trivia("Kingisle")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Conjuring")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Magical")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Marleybone")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Mystical")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spellbinding")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spells")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Wizard City")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Zafaria")
+        time.sleep(3)
+    elif name=="Conjuring":
+        pick_trivia("Conjuring")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Magical")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Marleybone")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Mystical")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spellbinding")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spells")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Wizard City")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Zafaria")
+        time.sleep(3)
+    elif name=="Magical":
+        pick_trivia("Magical")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Marleybone")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Mystical")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spellbinding")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spells")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Wizard City")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Zafaria")
+        time.sleep(3)
+    elif name=="Marleybone":
+        pick_trivia("Marleybone")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Mystical")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spellbinding")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spells")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Wizard City")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Zafaria")
+        time.sleep(3)
+    elif name=="Mystical":
+        pick_trivia("Mystical")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spellbinding")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spells")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Wizard City")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Zafaria")
+        time.sleep(3)
+    elif name=="Spellbinding":
+        pick_trivia("Spellbinding")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Spells")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Wizard City")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Zafaria")
+        time.sleep(3)
+    elif name=="Spells":
+        pick_trivia("Spells")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Wizard City")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Zafaria")
+        time.sleep(3)
+    elif name=="Wizard City":
+        pick_trivia("Wizard City")
+        time.sleep(3)
+        change_trivia()
+        time.sleep(3)
+        pick_trivia("Zafaria")
+        time.sleep(3)
+    elif name=="Zafaria":
+        pick_trivia("Zafaria")
+        time.sleep(3)
